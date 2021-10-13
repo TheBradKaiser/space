@@ -1,8 +1,5 @@
 import requests
 
-#import coverage
-
-
 class SpacePeople:
 
     def getData(self,url):

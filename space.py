@@ -54,7 +54,6 @@ class SpacePeople:
                 table=table+li[2][a].ljust(li[1])+"\n"
         return table
 
-#5 lines
 x=SpacePeople()
 data = x.getData("http://api.open-notify.org/astros.json")
 x.sortData(data)

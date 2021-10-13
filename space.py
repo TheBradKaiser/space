@@ -6,8 +6,11 @@ import requests
 class SpacePeople:
 
     def getData(self,url):
-        response = requests.get(url)
-        return response.json()["people"]
+        try:
+            response = requests.get(url)
+            return response.json()["people"]
+        except:
+            return "Please enter valid url"
         
     def sortData(self,data):
         #used in part of challenge 2
@@ -45,7 +48,7 @@ class SpacePeople:
                 table=table+li[2][a].ljust(li[0])+"|"
             else:
                 table=table+li[2][a].ljust(li[1])+"\n"
-        print(table)
+        return table
 
 #5 lines
 x=SpacePeople()
@@ -53,4 +56,4 @@ data = x.getData("http://api.open-notify.org/astros.json")
 x.sortData(data)
 li=x.parseData(data)
 table = x.createTableHeader(li[0],li[1])
-x.createTable(table,li)
+print(x.createTable(table,li))
